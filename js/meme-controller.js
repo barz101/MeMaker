@@ -119,7 +119,6 @@ function onShare(elForm, ev) {
 }
 
 function onClickMemes() {
-    console.log('Memes tab clicked');
     document.querySelector('.image-editor').classList.add('hidden');
     document.querySelector('.image-gallery').classList.add('hidden');
     document.querySelector('.meme-gallery').classList.remove('hidden');
@@ -131,14 +130,23 @@ function onMouseDown(ev) {
     var offsetY = ev.offsetY
     var spotY = offsetY;
     var match = checkClickedSpot(spotY);
-    console.log(match);
     if (match === 'no match') return;
-    setCurrLine(match);
-    // function to draw it is selected
+    onPickLine(match);
 }
 
-function onMouseUp() {
+function onPickLine(match) {
+    setCurrLine(match);
+    clearCurrStyle();
+    drawImg();
+    drawText();
+    strokeActiveLine()
+}
+
+function onMouseUp(ev) {
     setMouseClicked(false);
+    var x = ev.offsetX
+    var y = ev.offsetY
+    setNewPosition(x, y);
 }
 
 function onMouseMove(ev) {
@@ -150,12 +158,15 @@ function onMouseMove(ev) {
         clearCurrStyle();
         drawImg();
         drawText();
+        strokeActiveLine()
     }
 }
+
 function toggleModals() {
     document.querySelector('.image-gallery').classList.toggle('hidden');
     document.querySelector('.image-editor').classList.toggle('hidden');
 }
+
 function toggleMenu() {
     document.body.classList.toggle('menu-open')
     const hamburger = document.querySelector('.hamburger');
@@ -169,6 +180,7 @@ function renderImgs(img) {
     var elImgContainer = document.querySelector('.image-container');
     elImgContainer.innerHTML = strHTMLs.join('');
 }
+
 function renderSelectedImgs(imgs) {
     var strHTMLs = imgs.map(getImgHTML);
     var elImgContainer = document.querySelector('.image-container');
@@ -186,6 +198,7 @@ function getImgHTML(img) {
     var imgHTML = `<img onclick="onClickImg(this.dataset.img)"data-img=${img.id} src="./img/${img.url}">`;
     return imgHTML;
 }
+
 function getMeme() {
     var meme = loadFromStorage('imgdata');
     return meme;

@@ -72,7 +72,7 @@
 
         <div class="image-editor flex justify-center align-center hidden">
             <div class="canvas-container">
-                <canvas onmouseup="onMouseUp()" onmousemove="onMouseMove(event)" onmousedown="onMouseDown(event)"
+                <canvas onmouseup="onMouseUp(event)" onmousemove="onMouseMove(event)" onmousedown="onMouseDown(event)"
                     id="myCanvas" width="550" height="550"
                     style="outline:0.2px solid rgba(150, 148, 148, 0.267)"></canvas>
             </div>
@@ -80,9 +80,6 @@
                 <input oninput="onAddText()" class="clean-input add-text" type="text" name="Text"
                     placeholder="Enter Your Text">
                 <div class="space-children flex">
-                    <button onclick="onSwitchLine()" class="switch-line">
-                        <i class="fa fa-arrows-v"></i>
-                    </button>
                     <button onclick="onMoveLine('up')">
                         <i class="fa fa-arrow-up move-line"></i>
                     </button>

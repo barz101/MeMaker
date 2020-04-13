@@ -210,24 +210,29 @@ body {
     padding: 30px 0px;
     height: 85vh;
 }
-
-.edit-container {
-    width: 450px;
-    height: 650px;
-    box-shadow: inset -2px -1px 10px 1px rgb(218, 224, 224);
-    outline: 0.2px solid rgba(233, 232, 232, 0.267)
-}
-
 .canvas-container {
     width: 650px;
     height: 650px;
 }
+canvas {
+    cursor: pointer;
+}
+
+.edit-container {
+    width: 450px;
+    height: 650px;
+    box-shadow: inset -2px -1px 10px 1px rgb(225, 228, 228);
+    outline: 0.2px solid rgba(233, 232, 232, 0.267);
+    background-color: rgb(245, 255, 255);
+}
+
 
 .edit-container .add-text {
-    border: 1.5px solid rgb(212, 209, 209);
+    border: 1px solid rgba(136, 192, 184, 0.47);
     border-radius: 15px;
     width: 300px;
     padding: 10px;
+    background-color: rgba(223, 248, 245, 0.47);
 }
 
 .edit-container button {
