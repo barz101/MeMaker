@@ -1,5 +1,7 @@
 'use strict'
 
+console.log('test');
+
 var gCanvas;
 var gCtx;
 const KEY = 'memes';
@@ -17,7 +19,7 @@ var gMeme = {
             fontColor: 'black',
             strokeColor: 'white',
             fontFamily: 'IMPACT',
-            position: [250, 100]
+            position: [250, 200]
         },
         {
             txt: 'Enter Text',
@@ -126,8 +128,10 @@ function addImage(img) {
 
 function drawText() {
     gMeme.lines.forEach((line) => {
-        var x = line.position[0];
-        var y = line.position[1];
+        // var x = line.position[0];
+        // var y = line.position[1];
+        var x = gCanvas.width/2
+        var y = gCanvas.height/2
         var txt = line.txt;
         var strStyle = line.fontSize + 'px' + ' ' + line.fontFamily;
         gCtx.font = strStyle;
