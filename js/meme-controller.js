@@ -12,34 +12,6 @@ function onInit() {
     // })
 }
 
-function onMouseDown(ev) {
-    setMouseClicked(true);
-    var offsetX = ev.offsetX
-    var offsetY = ev.offsetY
-    var spotCoord = [offsetX, offsetY]
-    var match = checkClickedSpot(spotCoord);
-    if (match = 'no match') return;
-    else {
-        setCurrLine(match)
-        // function to draw it is selected
-    }
-}
-
-function onMouseUp() {
-    setMouseClicked(false);
-}
-
-function onMouseMove(ev) {
-    var isMatch = checkisMatch();
-    if (isMatch) {
-        var x = ev.offsetX
-        var y = ev.offsetY
-        setNewPosition(x, y);
-        clearCurrStyle();
-        drawImg();
-        drawText();
-    }
-}
 
 function onClickImg(img) {
     var imgId = img;
@@ -154,6 +126,32 @@ function onClickMemes() {
     renderMeme();
 }
 
+function onMouseDown(ev) {
+    setMouseClicked(true);
+    var offsetY = ev.offsetY
+    var spotY = offsetY;
+    var match = checkClickedSpot(spotY);
+    console.log(match);
+    if (match === 'no match') return;
+    setCurrLine(match);
+    // function to draw it is selected
+}
+
+function onMouseUp() {
+    setMouseClicked(false);
+}
+
+function onMouseMove(ev) {
+    var isMatch = checkisMatch();
+    if (isMatch) {
+        var x = ev.offsetX
+        var y = ev.offsetY
+        setNewPosition(x, y);
+        clearCurrStyle();
+        drawImg();
+        drawText();
+    }
+}
 function toggleModals() {
     document.querySelector('.image-gallery').classList.toggle('hidden');
     document.querySelector('.image-editor').classList.toggle('hidden');

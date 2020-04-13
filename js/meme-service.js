@@ -36,22 +36,30 @@ function setMouseClicked(boolean) {
 }
 
 function setCurrLine(match) {
+    console.log('got currline' + match);
+    // debugger;
     gMeme.selectedLineIdx = match
+    console.log('gMeme.selectedLineIdx: ' , gMeme.selectedLineIdx);
+    
 }
 
 function checkisMatch() {
     return gIsMouseClicked;
 }
 
-function checkClickedSpot(spotCoord) {
-    if (spotCoord[0] === gMeme.lines[0].position[0] &&
-        spotCoord[1] === gMeme.lines[0].position[1]) {
+function checkClickedSpot(y) {
+    var firstLine = gMeme.lines[0].position;
+    var secondLine = gMeme.lines[1].position;
+    console.log('clicked place: ', y, 'secondLine y: ', secondLine[1], 'firstLine y: ', firstLine[1]);
+    if (y > (firstLine[1] - (gCanvas.height / 6)) &&
+        y < (firstLine[1] + (gCanvas.height / 15))) {
         return 0
     }
-    if (spotCoord[0] === gMeme.lines[1].position[0] &&
-        spotCoord[1] === gMeme.lines[1].position[1]) {
+    if (y > (secondLine[1] - (gCanvas.height / 6)) &&
+        y < (secondLine[1] + (gCanvas.height / 15))) {
         return 1
     }
+
     else return 'no match';
 }
 

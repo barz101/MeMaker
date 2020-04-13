@@ -5,50 +5,10 @@ function onSwitchLine() {
     elInput.placeholder = 'Enter Your Text';
     elInput.value = '';
 }
-
-New functions: 
- mouseDown(ev) ---> setMouseClicked(true); checkClickedSpot(spotCoord); setCurrLine(0)
- mouseUp(ev) --->  setGIsMouseClicked(false);
- mouseMove(ev) ---> checkCurrStatus(); setmove(offsetX, offsetY);
-
-
-
-    clearCurrStyle();
-    drawImg();
-    drawText();
-
-3 events:
-onmousedown
-onmousemove
-onmouseup
-* first mouse then toach
-user pressed canvas - 
-onmousedown(ev) = change  
-
-gismouselicked= true (before:False)
-get ev.offsetwidth ev.offsetheight
-onmouseup = change gvar to False
-
-onmousemove(ev):
-- compare clicked spot with the lines curr Position
-- if it matches where the user clicked change selecetdcurrlineIDX
-- get ev.offsetwidth ev.offsetheight
-- change the position of seleceted line
-- !!! works only while gismouselicked= true
-
 * fix canvas container
 * fix upload file
 * 
 
-function onCanvasClick(ev) {
-//     var offsetX = ev.offsetX
-//     var offsetY = ev.offsetY
-        
-//     setPosition(offsetX, offsetY)
-//     clearCurrStyle();
-//     drawImg();
-//     drawText();
-// }
 
 // function renderMemes() {
 //     var memes = getMemes();
