@@ -17,6 +17,7 @@ function onClickImg(img) {
     toggleModals();
     resizeCanvas();
     setMemeImg(imgId);
+    setInitSetting();
     drawImg();
     drawText();
 }
@@ -55,7 +56,8 @@ function onAddText() {
 function onSwitchLine() {
     changeLine();
     var elInput = document.querySelector('.add-text');
-    elInput.value = 'Enter Your Text';
+    elInput.placeholder = 'Enter Your Text';
+    elInput.value = '';
 }
 
 function onMoveLine(direction) {
@@ -64,7 +66,7 @@ function onMoveLine(direction) {
     var y = currPosition[1];
     if (direction === 'up') y -= 10;
     else y += 10;
-    setPosition(x, y);
+    setNewPosition(x, y);
     clearCurrStyle();
     drawImg();
     drawText();
@@ -84,6 +86,11 @@ function onPickChange(el) {
     drawImg();
     drawText(top)
 }
+
+function onPickSticker(stickerId) {
+    drawSticker(stickerId)
+}
+
 function onPickTheme(ev) {
     var theme = ev.value
     setNewTheme(theme);

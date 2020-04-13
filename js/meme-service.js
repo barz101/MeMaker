@@ -1,7 +1,5 @@
 'use strict'
 
-console.log('test');
-
 var gCanvas;
 var gCtx;
 const KEY = 'memes';
@@ -60,11 +58,17 @@ function setMemeImg(imgId) {
 
 function setMemeText(txt) {
     var currIdx = gMeme.selectedLineIdx
-    console.log('setting' + txt);
     gMeme["lines"][currIdx].txt = txt;
 }
 
-function setPosition(x, y) {
+function setInitSetting() {
+    gMeme["lines"][0].position = [gCanvas.width / 2, gCanvas.height / 8];
+    gMeme["lines"][1].position = [gCanvas.width / 2, gCanvas.height / 1.07];
+    gMeme["lines"][0].fontSize = gCanvas.width / 10
+    gMeme["lines"][1].fontSize = gCanvas.width / 10
+}
+
+function setNewPosition(x, y) {
     var currIdx = gMeme.selectedLineIdx
     gMeme["lines"][currIdx].position = [x, y];
 }
@@ -117,8 +121,6 @@ function drawImg() {
     var imgId = gMeme.selectedImgId;
     var img = new Image();
     img.src = `./img/${gTheme}/${imgId}.jpg`;
-    console.log(img.src);
-
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
 }
 
@@ -126,12 +128,12 @@ function addImage(img) {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
 }
 
+
+
 function drawText() {
     gMeme.lines.forEach((line) => {
-        // var x = line.position[0];
-        // var y = line.position[1];
-        var x = gCanvas.width/2
-        var y = gCanvas.height/2
+        var x = line.position[0];
+        var y = line.position[1];
         var txt = line.txt;
         var strStyle = line.fontSize + 'px' + ' ' + line.fontFamily;
         gCtx.font = strStyle;
@@ -141,6 +143,12 @@ function drawText() {
         gCtx.fillText(txt, x, y);
         gCtx.strokeText(txt, x, y);
     })
+}
+
+function drawSticker(stickerId) {
+    var sticker = new Image();
+    sticker.src = `./stickers/${stickerId}.png`;
+    gCtx.drawImage(sticker, gCanvas.width/2.1, gCanvas.height/3, gCanvas.width/8, gCanvas.height/8);
 }
 
 function clearCurrStyle() {
@@ -231,25 +239,25 @@ var gDisneyImgs = [
 ];
 
 var gHarryPotterImgs =
-[
-    { id: 1, url: 'harrypotter/1.jpg', keywords: [''] },
-    { id: 2, url: 'harrypotter/2.jpg', keywords: [''] },
-    { id: 3, url: 'harrypotter/3.jpg', keywords: [''] },
-    { id: 4, url: 'harrypotter/4.jpg', keywords: [''] },
-    { id: 5, url: 'harrypotter/5.jpg', keywords: [''] },
-    { id: 6, url: 'harrypotter/6.jpg', keywords: [''] },
-    { id: 7, url: 'harrypotter/7.jpg', keywords: [''] },
-    { id: 8, url: 'harrypotter/8.jpg', keywords: [''] },
-    { id: 9, url: 'harrypotter/9.jpg', keywords: [''] },
-    { id: 10, url: 'harrypotter/10.jpg', keywords: [''] },
-    { id: 11, url: 'harrypotter/11.jpg', keywords: [''] },
-    { id: 12, url: 'harrypotter/12.jpg', keywords: [''] },
-    { id: 13, url: 'harrypotter/13.jpg', keywords: [''] },
-    { id: 14, url: 'harrypotter/14.jpg', keywords: [''] },
-    { id: 15, url: 'harrypotter/15.jpg', keywords: [''] },
-    { id: 16, url: 'harrypotter/16.jpg', keywords: [''] },
-    { id: 17, url: 'harrypotter/17.jpg', keywords: [''] },
-    { id: 18, url: 'harrypotter/18.jpg', keywords: [''] },
+    [
+        { id: 1, url: 'harrypotter/1.jpg', keywords: [''] },
+        { id: 2, url: 'harrypotter/2.jpg', keywords: [''] },
+        { id: 3, url: 'harrypotter/3.jpg', keywords: [''] },
+        { id: 4, url: 'harrypotter/4.jpg', keywords: [''] },
+        { id: 5, url: 'harrypotter/5.jpg', keywords: [''] },
+        { id: 6, url: 'harrypotter/6.jpg', keywords: [''] },
+        { id: 7, url: 'harrypotter/7.jpg', keywords: [''] },
+        { id: 8, url: 'harrypotter/8.jpg', keywords: [''] },
+        { id: 9, url: 'harrypotter/9.jpg', keywords: [''] },
+        { id: 10, url: 'harrypotter/10.jpg', keywords: [''] },
+        { id: 11, url: 'harrypotter/11.jpg', keywords: [''] },
+        { id: 12, url: 'harrypotter/12.jpg', keywords: [''] },
+        { id: 13, url: 'harrypotter/13.jpg', keywords: [''] },
+        { id: 14, url: 'harrypotter/14.jpg', keywords: [''] },
+        { id: 15, url: 'harrypotter/15.jpg', keywords: [''] },
+        { id: 16, url: 'harrypotter/16.jpg', keywords: [''] },
+        { id: 17, url: 'harrypotter/17.jpg', keywords: [''] },
+        { id: 18, url: 'harrypotter/18.jpg', keywords: [''] },
 
 
-];
+    ];

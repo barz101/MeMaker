@@ -104,9 +104,7 @@ body {
     outline: none;
 }
 
-
 /* image-gallery */
-
 
 .image-gallery {
     margin-bottom: 20px;
@@ -128,7 +126,7 @@ body {
 }
 
 .image-container img:hover {
-    opacity: 0.85;
+    opacity: 0.8;
 }
 
 .image-search {
@@ -214,7 +212,9 @@ body {
 
 .edit-container {
     width: 450px;
-    height: 550px;
+    height: 650px;
+    box-shadow: inset -2px -1px 10px 1px rgb(218, 224, 224);
+    outline:0.2px solid rgba(233, 232, 232, 0.267)
 }
 
 .canvas-container {
@@ -348,8 +348,17 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .edit-container .stickers {
-    width: 280px;
-    height: 80px;
+    width: 300px;
+    height: 70px;
+    border: 1px solid rgba(136, 192, 184, 0.47);
+    border-radius:12px;
+    background-color: rgba(181, 243, 235, 0.47);
+}
+
+.edit-container .stickers img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
 }
 
 .edit-container .export-buttons button {
@@ -504,6 +513,7 @@ footer small {
         outline: none;
     }
     .menu-open .main-nav {
+        z-index: 10;
         display: block;
     }
     .container {
@@ -605,7 +615,6 @@ footer small {
     }
     .edit-container .stickers {
         margin: 10px 0;
-        background-color: pink;
         width: 80vw;
         height: 50px;
     }

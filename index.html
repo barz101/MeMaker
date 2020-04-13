@@ -24,8 +24,9 @@
                 <div class="align-center justify-center flex" onclick="onClickMemes()">Memes</div>
                 <div class="align-center justify-center flex">About</div>
                 <div class="align-center justify-center flex theme-dropbtn">
-                    <select name="" onchange="onPickTheme(this)" class="dropbtn">
-                        <option value="">Theme</option>
+                    <select name="" onfocus="document.querySelector('.theme-holder').classList.toggle('hidden')"
+                        onchange="onPickTheme(this)" class="dropbtn">
+                        <option class="theme-holder" value="">Theme</option>
                         <option value="regular">Regular</option>
                         <option value="disney">Disney</option>
                         <option value="harrypotter">HP</option>
@@ -72,9 +73,9 @@
         <div class="image-editor flex justify-center align-center hidden">
             <div class="canvas-container">
                 <canvas id="myCanvas" width="550" height="550"
-                    style="outline:0.5px solid rgba(0, 0, 0, 0.267)"></canvas>
+                    style="outline:0.2px solid rgba(150, 148, 148, 0.267)"></canvas>
             </div>
-            <div class="edit-container column flex align-center space-between">
+            <div class="edit-container column flex align-center space-evenly">
                 <input oninput="onAddText()" class="clean-input add-text" type="text" name="Text"
                     placeholder="Enter Your Text">
                 <div class="space-children flex">
@@ -125,7 +126,13 @@
                         <input oninput="onPickChange(this)" name="fontColor" type="color">
                     </div>
                 </div>
-                <div class="stickers">Stickers</div>
+                <div class="stickers flex space-evenly align-center">
+                    <img onclick="onPickSticker('2')" src="./stickers/1.png" alt="sticker">
+                    <img onclick="onPickSticker('3')" src="./stickers/2.png" alt="sticker">
+                    <img onclick="onPickSticker('4')" src="./stickers/3.png" alt="sticker">
+                    <img onclick="onPickSticker('5')" src="./stickers/4.png" alt="sticker">
+                    <img onclick="onPickSticker('6')" src="./stickers/5.png" alt="sticker">
+                </div>
                 <div class="export-buttons flex space-children">
                     <button onclick="onSave()">Save</button>
                     <button><a class="clean-a" href="#" onclick="onDownload(this)" download="">Download</a></button>
