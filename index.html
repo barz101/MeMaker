@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memaker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    <link rel="stylesheet" href="./css/hamburger.css">
+</head>
+
+<body onload="onInit()">
+    <section class="screen" onclick="toggleMenu()"></section>
+    <!-- header of the site -->
+
+    <header class="main-header flex justify-center">
+        <div class="flex container justify-center align-center space-between">
+            <div class="logo">memaker
+                <span class="theme disney"></span>
+            </div>
+            <div class="main-nav flex">
+                <div class="align-center justify-center flex" onclick="onClickGallery()">Gallery</div>
+                <div class="align-center justify-center flex" onclick="onClickMemes()">Memes</div>
+                <div class="align-center justify-center flex">About</div>
+                <div class="align-center justify-center flex theme-dropbtn">
+                    <select name="" onchange="onPickTheme(this)" class="dropbtn">
+                        <option value="">Theme</option>
+                        <option value="regular">Regular</option>
+                        <option value="disney">Disney</option>
+                        <option value="harrypotter">HP</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button onclick="toggleMenu()" class="hamburger hamburger--spin btn-menu" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        </div>
+    </header>
+    <main>
+
+        <!-- image-gallery -->
+
+        <div class="image-gallery container">
+            <div class="image-gallrey-header flex justify-center align-center">
+                <div class="image-search flex">
+                    <input onchange="onSearch(this.value)" class="search-input clean-input"
+                        placeholder="Enter search keyword" type="text"> <i class="fa fa-search"></i></input>
+                    <input type="file" id="file" name="image" onchange="onImgInput(event)" class="hidden" />
+                    <input class="browse" type="button" value="Browse..."
+                        onclick="document.getElementById('file').click();" />
+                    </input>
+                </div>
+                <div class="words-search flex text-center align-center justify-start">
+                    <span class="small-word" onclick="onClickWord('funny')" name="funny">funny</span>
+                    <span class="big-word" onclick="onClickWord('animal')" name="animal">ANIMAL</span>
+                    <span class="small-word" onclick="onClickWord('men')" name="men">men</span>
+                    <span class="mid-word" onclick="onClickWord('woman')" name="woman">woman</span>
+                    <span class="big-word" onclick="onClickWord('house')" name="house">House</span>
+                    <span class="more-btn" onclick="onClickMore()" class="search-more">more</span>
+                </div>
+                <div class="more-words-container"></div>
+            </div>
+            <div class="image-container flex wrap justify-center"></div>
+        </div>
+
+        <!-- image-editor-->
+
+        <div class="image-editor flex justify-center align-center hidden">
+            <div class="canvas-container">
+                <canvas id="myCanvas" width="550" height="550"
+                    style="outline:0.5px solid rgba(0, 0, 0, 0.267)"></canvas>
+            </div>
+            <div class="edit-container column flex align-center space-between">
+                <input oninput="onAddText()" class="clean-input add-text" type="text" name="Text"
+                    placeholder="Enter Your Text">
+                <div class="space-children flex">
+                    <button onclick="onSwitchLine()" class="switch-line">
+                        <i class="fa fa-arrows-v"></i>
+                    </button>
+                    <button onclick="onMoveLine('up')">
+                        <i class="fa fa-arrow-up move-line"></i>
+                    </button>
+                    <button onclick="onMoveLine('down')">
+                        <i class="fa fa-arrow-down move-line"></i>
+                    </button>
+                    <button onclick="onAddText()">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                    <button onclick="onDeleteText()">
+                        <i class="fa fa-trash"></i>
+                    </button>
+
+                </div>
+                <div class="space-children flex">
+                    <button onclick="onPickChange(this)" name="fontSize" value="bigger">A+</button>
+                    <button onclick="onPickChange(this)" name="fontSize" value="smaller">A-</button>
+                    <button onclick="onPickChange(this)" name="align" value="right">
+                        <i class="fa fa-align-left"></i>
+                    </button>
+                    <button onclick="onPickChange(this)" name="align" value="center">
+                        <i class="fa fa-align-center"></i>
+                    </button>
+                    <button onclick="onPickChange(this)" name="align" value="left">
+                        <i class="fa fa-align-right"></i>
+                    </button>
+                </div>
+                <div class="font-design space-children flex row justify-center align-center">
+                    <div class="font-dropdown">
+                        <select name="fontFamily" onchange="onPickChange(this)" class="dropbtn">
+                            <option value="IMPACT">IMPACT</option>
+                            <option value="Arial">Arial</option>
+                            <option value="cursive">cursive</option>
+                        </select>
+                    </div>
+                    <div class="colorButton">
+                        <span class="color-icon stroke">A</span>
+                        <input oninput="onPickChange(this)" name="strokeColor" type="color">
+                    </div>
+                    <div class="colorButton">
+                        <i class="color-icon fa fa-paint-brush"></i>
+                        <input oninput="onPickChange(this)" name="fontColor" type="color">
+                    </div>
+                </div>
+                <div class="stickers">Stickers</div>
+                <div class="export-buttons flex space-children">
+                    <button onclick="onSave()">Save</button>
+                    <button><a class="clean-a" href="#" onclick="onDownload(this)" download="">Download</a></button>
+                    <form action="" method="POST" enctype="multipart/form-data" onsubmit="onShare(this, event)">
+                        <input name="img" id="imgData" type="hidden" />
+                        <button class="btn" type="submit">Share</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- meme-gallery -->
+
+        <div class="meme-gallery container flex column align-center justify-center hidden">
+            <h2> Your Memes!</h2>
+            <div class="meme-gallery-img flex"></div>
+        </div>
+    </main>
+
+    <footer class="flex column align-center">
+        <div class="logo">memaker</div>
+        <small>all rights reserved 2020</small>
+    </footer>
+    <script src="js/meme-service.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/meme-controller.js"></script>
+    <script src="js/storage-service.js"></script>
+    <script src="js/upload-service.js"></script>
+</body>
+
+</html>

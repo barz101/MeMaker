@@ -1,0 +1,7 @@
+
+4. Phase4 - Basic CSS:
+a. Build the page layout with header (NavBar), footer and container for the center
+b. Locate the two images at the center of the Image-Gallery page. Make sure both Images are the same width in CSS
+c. Give the Meme-Editor the right proportion between the space allocated for the canvas and the line-controls
+d. Implement a basic CSS for mobile (both gallery and Editor)
+e. Implement that the Editor is hidden to start with and revealed when an image is clicked
