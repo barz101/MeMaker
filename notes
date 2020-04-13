@@ -1,3 +1,22 @@
+
+function onSwitchLine() {
+    changeLine();
+    var elInput = document.querySelector('.add-text');
+    elInput.placeholder = 'Enter Your Text';
+    elInput.value = '';
+}
+
+New functions: 
+ mouseDown(ev) ---> setMouseClicked(true); checkClickedSpot(spotCoord); setCurrLine(0)
+ mouseUp(ev) --->  setGIsMouseClicked(false);
+ mouseMove(ev) ---> checkCurrStatus(); setmove(offsetX, offsetY);
+
+
+
+    clearCurrStyle();
+    drawImg();
+    drawText();
+
 3 events:
 onmousedown
 onmousemove
@@ -5,6 +24,7 @@ onmouseup
 * first mouse then toach
 user pressed canvas - 
 onmousedown(ev) = change  
+
 gismouselicked= true (before:False)
 get ev.offsetwidth ev.offsetheight
 onmouseup = change gvar to False
@@ -21,8 +41,9 @@ onmousemove(ev):
 * 
 
 function onCanvasClick(ev) {
-//     const offsetX = ev.offsetX
-//     const offsetY = ev.offsetY
+//     var offsetX = ev.offsetX
+//     var offsetY = ev.offsetY
+        
 //     setPosition(offsetX, offsetY)
 //     clearCurrStyle();
 //     drawImg();

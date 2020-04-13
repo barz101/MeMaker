@@ -72,7 +72,8 @@
 
         <div class="image-editor flex justify-center align-center hidden">
             <div class="canvas-container">
-                <canvas id="myCanvas" width="550" height="550"
+                <canvas onmouseup="onMouseUp()" onmousemove="onMouseMove(event)" onmousedown="onMouseDown(event)"
+                    id="myCanvas" width="550" height="550"
                     style="outline:0.2px solid rgba(150, 148, 148, 0.267)"></canvas>
             </div>
             <div class="edit-container column flex align-center space-evenly">

@@ -12,6 +12,35 @@ function onInit() {
     // })
 }
 
+function onMouseDown(ev) {
+    setMouseClicked(true);
+    var offsetX = ev.offsetX
+    var offsetY = ev.offsetY
+    var spotCoord = [offsetX, offsetY]
+    var match = checkClickedSpot(spotCoord);
+    if (match = 'no match') return;
+    else {
+        setCurrLine(match)
+        // function to draw it is selected
+    }
+}
+
+function onMouseUp() {
+    setMouseClicked(false);
+}
+
+function onMouseMove(ev) {
+    var isMatch = checkisMatch();
+    if (isMatch) {
+        var x = ev.offsetX
+        var y = ev.offsetY
+        setNewPosition(x, y);
+        clearCurrStyle();
+        drawImg();
+        drawText();
+    }
+}
+
 function onClickImg(img) {
     var imgId = img;
     toggleModals();
@@ -51,13 +80,6 @@ function onAddText() {
     clearCurrStyle();
     drawImg();
     drawText();
-}
-
-function onSwitchLine() {
-    changeLine();
-    var elInput = document.querySelector('.add-text');
-    elInput.placeholder = 'Enter Your Text';
-    elInput.value = '';
 }
 
 function onMoveLine(direction) {

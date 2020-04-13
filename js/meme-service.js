@@ -5,7 +5,7 @@ var gCtx;
 const KEY = 'memes';
 var gTheme = 'regular';
 var gImgs = [];
-
+var gIsMouseClicked = false;
 var gMeme = {
     selectedImgId: 1, selectedLineIdx: 0,
 
@@ -30,6 +30,36 @@ var gMeme = {
         }
     ]
 }
+
+function setMouseClicked(boolean) {
+    gIsMouseClicked = boolean;
+}
+
+function setCurrLine(match) {
+    gMeme.selectedLineIdx = match
+}
+
+function checkisMatch() {
+    return gIsMouseClicked;
+}
+
+function checkClickedSpot(spotCoord) {
+    if (spotCoord[0] === gMeme.lines[0].position[0] &&
+        spotCoord[1] === gMeme.lines[0].position[1]) {
+        return 0
+    }
+    if (spotCoord[0] === gMeme.lines[1].position[0] &&
+        spotCoord[1] === gMeme.lines[1].position[1]) {
+        return 1
+    }
+    else return 'no match';
+}
+
+function setNewPosition(x, y) {
+    var currIdx = gMeme.selectedLineIdx
+    gMeme["lines"][currIdx].position = [x, y];
+}
+
 function setNewTheme(theme) {
     gTheme = theme;
 }
@@ -67,11 +97,6 @@ function setInitSetting() {
     gMeme["lines"][1].position = [gCanvas.width / 2, gCanvas.height / 1.07];
     gMeme["lines"][0].fontSize = gCanvas.width / 10
     gMeme["lines"][1].fontSize = gCanvas.width / 10
-}
-
-function setNewPosition(x, y) {
-    var currIdx = gMeme.selectedLineIdx
-    gMeme["lines"][currIdx].position = [x, y];
 }
 
 function setNewStyle(styleType, newStyle) {
@@ -149,7 +174,7 @@ function drawText() {
 function drawSticker(stickerId) {
     var sticker = new Image();
     sticker.src = `./stickers/${stickerId}.png`;
-    gCtx.drawImage(sticker, gCanvas.width/2.1, gCanvas.height/3, gCanvas.width/8, gCanvas.height/8);
+    gCtx.drawImage(sticker, gCanvas.width / 2.1, gCanvas.height / 3, gCanvas.width / 8, gCanvas.height / 8);
 }
 
 function clearCurrStyle() {
@@ -161,14 +186,6 @@ function saveMemesToStorage() {
     if (!memes.length) memes = [];
     memes.push(gMeme);
     saveToStorage(KEY, memes);
-}
-
-function changeLine() {
-    if (gMeme.selectedLineIdx === 0) {
-        gMeme.selectedLineIdx = 1;
-        return;
-    }
-    else if (gMeme.selectedLineIdx === 1) gMeme.selectedLineIdx = 0;
 }
 
 function getMemeData() {
