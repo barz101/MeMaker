@@ -6,10 +6,10 @@ function onInit() {
     setCanvas(canvas, ctx);
     setThemeImgs();
     renderImgs();
-    window.addEventListener('resize', () => {
-        gCanvas.width = window.innerWidth
-        gCanvas.height = window.innerHeight
-    })
+    // window.addEventListener('resize', () => { 
+    //     gCanvas.width = window.innerWidth
+    //     gCanvas.height = window.innerHeight
+    // })
 }
 
 function onClickImg(img) {
@@ -99,7 +99,9 @@ function onPickTheme(ev) {
 }
 
 function onSave() {
-    // var data = [];
+    // bring saved meme from storage
+    // if no length set new one if not push to array
+    var data = [];
     data = getMemeData();
     saveToStorage('imgdata', data)
 }

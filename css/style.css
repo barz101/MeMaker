@@ -1,3 +1,4 @@
+@import 'helpers.css';
 * {
     box-sizing: border-box;
 }
@@ -214,7 +215,7 @@ body {
     width: 450px;
     height: 650px;
     box-shadow: inset -2px -1px 10px 1px rgb(218, 224, 224);
-    outline:0.2px solid rgba(233, 232, 232, 0.267)
+    outline: 0.2px solid rgba(233, 232, 232, 0.267)
 }
 
 .canvas-container {
@@ -351,7 +352,7 @@ input[type="color"]::-webkit-color-swatch {
     width: 300px;
     height: 70px;
     border: 1px solid rgba(136, 192, 184, 0.47);
-    border-radius:12px;
+    border-radius: 12px;
     background-color: rgba(181, 243, 235, 0.47);
 }
 
@@ -399,85 +400,6 @@ footer small {
     font-size: 1rem;
     margin-top: 10px;
     margin-bottom: 40px;
-}
-
-/* Flex Helpers */
-
-.flex {
-    display: flex;
-}
-
-.flex.column {
-    flex-direction: column;
-}
-
-.flex.justify-center {
-    justify-content: center;
-}
-
-.flex.justify-end {
-    justify-content: end;
-}
-
-.flex.space-between {
-    justify-content: space-between;
-}
-
-.flex.space-evenly {
-    justify-content: space-evenly;
-}
-
-.flex.space-around {
-    justify-content: space-around;
-}
-
-.flex.align-center {
-    align-items: center;
-}
-
-.flex.align-start {
-    align-items: flex-start;
-}
-
-.flex.fully-center {
-    align-items: center;
-    justify-content: center;
-}
-
-.flex.wrap {
-    flex-wrap: wrap;
-}
-
-.flex.grow {
-    flex-grow: 1;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.clean-input {
-    background-color: none;
-    cursor: text;
-    font: 700 1.185rem Montserrat;
-    color: #7a7a7a;
-    padding: 4px 2px;
-    border: none;
-    width: 215px;
-}
-
-.clean-input:focus {
-    outline: none;
-}
-
-.clean-a {
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.inline-block {
-    display: inline-block;
 }
 
 @media (max-width: 740px) {

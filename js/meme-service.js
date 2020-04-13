@@ -62,6 +62,7 @@ function setMemeText(txt) {
 }
 
 function setInitSetting() {
+    // gMeme["lines"][0].position = [gCanvas.width / 2, gCanvas.height / 8];
     gMeme["lines"][0].position = [gCanvas.width / 2, gCanvas.height / 8];
     gMeme["lines"][1].position = [gCanvas.width / 2, gCanvas.height / 1.07];
     gMeme["lines"][0].fontSize = gCanvas.width / 10
