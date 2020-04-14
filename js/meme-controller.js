@@ -92,11 +92,15 @@ function onPickTheme(ev) {
     setThemeImgs();
     renderImgs();
     console.log(theme);
-    // var searchWords = getThemeSearchWords();
+    var searchWords = getThemeSearchWords(theme);
     var Themesdata = getThemeData()
-    if (theme === 'disney') document.querySelector('.theme-font').innerText = 'Disney'
-    if (theme === 'harrypotter') document.querySelector('.theme-font').innerText = 'Harry Potter'
-    if (theme === 'regular') document.querySelector('.theme-font').innerText = ''
+    document.querySelector('.words-search').innerHTML = searchWords;
+    if (theme === 'disney') {
+        document.querySelector('.theme-font').innerText = 'Disney'
+
+    }
+    if (theme === 'harrypotter') { document.querySelector('.theme-font').innerText = 'Harry Potter' }
+    if (theme === 'regular') { document.querySelector('.theme-font').innerText = '' }
     renderTheme(theme, currTheme, Themesdata);
     // renderSearchWords(searchWords);
 }

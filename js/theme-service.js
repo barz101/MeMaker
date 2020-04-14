@@ -2,6 +2,25 @@
 
 var gTheme = 'regular';
 
+
+
+
+function getThemeSearchWords(theme) {
+    var words;
+    switch (theme) {
+        case 'regular':
+            words = gRegularKeywords;
+            break;
+        case 'disney':
+            words = gDisneyKeywords;
+            break;
+        case 'harrypotter':
+            words = gHarryPotterKeywords;
+            break;
+    }
+    return words
+}
+
 function setNewTheme(theme) {
     gTheme = theme;
 }
@@ -81,53 +100,79 @@ var gRegularImgs = [
 
 var gDisneyImgs = [
     { id: 1, url: 'disney/1.jpg', keywords: ['moana', 'women'] },
-    { id: 2, url: 'disney/2.jpg', keywords: ['frozen', 'anna'] },
+    { id: 2, url: 'disney/2.jpg', keywords: ['frozen', 'anna','women'] },
     { id: 3, url: 'disney/3.jpg', keywords: ['toy story', 'woody'] },
-    { id: 4, url: 'disney/4.jpg', keywords: ['hades', 'hecules'] },
+    { id: 4, url: 'disney/4.jpg', keywords: ['hades', 'hercules','men'] },
     { id: 5, url: 'disney/5.jpg', keywords: ['sulley', 'monsters inc'] },
-    { id: 6, url: 'disney/6.jpg', keywords: ['pocahontas'] },
+    { id: 6, url: 'disney/6.jpg', keywords: ['pocahontas','women'] },
     { id: 7, url: 'disney/7.jpg', keywords: ['toy story', 'woody'] },
-    { id: 8, url: 'disney/8.jpg', keywords: ['incredibles', 'elastigirl'] },
-    { id: 9, url: 'disney/9.jpg', keywords: ['incredibles', 'mr incredible'] },
-    { id: 10, url: 'disney/10.jpg', keywords: ['incredibles', 'edna'] },
+    { id: 8, url: 'disney/8.jpg', keywords: ['incredibles', 'elastigirl','women'] },
+    { id: 9, url: 'disney/9.jpg', keywords: ['incredibles', 'mr incredible','men'] },
+    { id: 10, url: 'disney/10.jpg', keywords: ['incredibles', 'edna','women'] },
     { id: 11, url: 'disney/11.jpg', keywords: ['lion king', 'simba'] },
     { id: 12, url: 'disney/12.jpg', keywords: ['mulan', 'mushu'] },
     { id: 13, url: 'disney/13.jpg', keywords: ['lion king', 'simba'] },
-    { id: 14, url: 'disney/14.jpg', keywords: ['aladdin', 'jafar'] },
-    { id: 15, url: 'disney/15.jpg', keywords: ['hercules', 'megara'] },
-    { id: 16, url: 'disney/16.jpg', keywords: ['anna', 'fozen'] },
-    { id: 17, url: 'disney/17.jpg', keywords: ['mulan', 'lee shang'] },
-    { id: 18, url: 'disney/18.jpg', keywords: ['hercules', 'megara'] },
-    { id: 19, url: 'disney/19.jpg', keywords: ['mulan'] },
+    { id: 14, url: 'disney/14.jpg', keywords: ['aladdin', 'jafar','men'] },
+    { id: 15, url: 'disney/15.jpg', keywords: ['hercules', 'megara','women'] },
+    { id: 16, url: 'disney/16.jpg', keywords: ['anna', 'fozen','women'] },
+    { id: 17, url: 'disney/17.jpg', keywords: ['mulan', 'lee shang','men'] },
+    { id: 18, url: 'disney/18.jpg', keywords: ['hercules', 'megara','women'] },
+    { id: 19, url: 'disney/19.jpg', keywords: ['mulan','women'] },
     { id: 20, url: 'disney/20.jpg', keywords: ['little mermaid', 'ursula'] },
-    { id: 21, url: 'disney/21.jpg', keywords: ['hecules'] },
+    { id: 21, url: 'disney/21.jpg', keywords: ['hecules','men'] },
     { id: 22, url: 'disney/22.jpg', keywords: ['stitch'] },
     { id: 23, url: 'disney/23.jpg', keywords: ['frozen'] },
-    { id: 24, url: 'disney/24.jpg', keywords: ['hecules', 'hades'] },
+    { id: 24, url: 'disney/24.jpg', keywords: ['hecules', 'hades','men'] },
     { id: 25, url: 'disney/25.jpg', keywords: ['pocahontas', 'dog'] },
     { id: 26, url: 'disney/26.jpg', keywords: ['mulan', 'mushu'] },
-    { id: 27, url: 'disney/27.jpg', keywords: ['aladdin'] },
+    { id: 27, url: 'disney/27.jpg', keywords: ['aladdin','men'] },
     { id: 28, url: 'disney/28.jpg', keywords: ['hercules'] },
 
 ];
 
 var gHarryPotterImgs = [
-    { id: 1, url: 'harrypotter/1.jpg', keywords: ['Hermione', 'Harry', 'Ron'] },
-    { id: 2, url: 'harrypotter/2.jpg', keywords: ['Ron', 'Snape', 'Harry'] },
-    { id: 3, url: 'harrypotter/3.jpg', keywords: ['Surprised', 'Harry'] },
-    { id: 4, url: 'harrypotter/4.jpg', keywords: ['Frustrated', 'Hermione'] },
-    { id: 5, url: 'harrypotter/5.jpg', keywords: ['Frightened', 'Ron', 'Howler'] },
-    { id: 6, url: 'harrypotter/6.jpg', keywords: ['Voldemort'] },
-    { id: 7, url: 'harrypotter/7.jpg', keywords: ['Bathroom', 'Potion', 'Cauldron', 'Hermione'] },
-    { id: 8, url: 'harrypotter/8.jpg', keywords: ['Happy', 'Clapping', 'Ron'] },
-    { id: 9, url: 'harrypotter/9.jpg', keywords: ['Wand', 'Professor', 'McGonagall'] },
-    { id: 10, url: 'harrypotter/10.jpg', keywords: ['Pleased', 'Hagrid'] },
-    { id: 11, url: 'harrypotter/11.jpg', keywords: ['Wand', 'Chewing', 'Bellatrix'] },
-    { id: 12, url: 'harrypotter/12.jpg', keywords: ['Harry', 'Voldemort', 'Face', 'Smoosh'] },
-    { id: 13, url: 'harrypotter/13.jpg', keywords: ['Dobby'] },
-    { id: 14, url: 'harrypotter/14.jpg', keywords: ['Harry', 'Wand', 'Floor'] },
-    { id: 15, url: 'harrypotter/15.jpg', keywords: ['Harry', 'Scar', 'Smiling'] },
-    { id: 16, url: 'harrypotter/16.jpg', keywords: ['Harry', 'Hermione', 'Worried'] },
-    { id: 17, url: 'harrypotter/17.jpg', keywords: ['Albus', 'Dumbledore'] },
-    { id: 18, url: 'harrypotter/18.jpg', keywords: ['Sybill', 'Trelawney'] },
+    { id: 1, url: 'harrypotter/1.jpg', keywords: ['hermione', 'harry', 'ron'] },
+    { id: 2, url: 'harrypotter/2.jpg', keywords: ['ron', 'snape', 'harry','men'] },
+    { id: 3, url: 'harrypotter/3.jpg', keywords: ['harry','men'] },
+    { id: 4, url: 'harrypotter/4.jpg', keywords: ['frustrated', 'hermione'] },
+    { id: 5, url: 'harrypotter/5.jpg', keywords: ['frightened', 'ron','men'] },
+    { id: 6, url: 'harrypotter/6.jpg', keywords: ['voldemort','men'] },
+    { id: 7, url: 'harrypotter/7.jpg', keywords: ['potion', 'cauldron', 'hermione'] },
+    { id: 8, url: 'harrypotter/8.jpg', keywords: ['happy', 'clapping', 'ron','men'] },
+    { id: 9, url: 'harrypotter/9.jpg', keywords: ['professor', 'mcGonagall', 'women'] },
+    { id: 10, url: 'harrypotter/10.jpg', keywords: ['hagrid','men'] },
+    { id: 11, url: 'harrypotter/11.jpg', keywords: ['bellatrix', 'women'] },
+    { id: 12, url: 'harrypotter/12.jpg', keywords: ['harry', 'voldemort', 'men'] },
+    { id: 13, url: 'harrypotter/13.jpg', keywords: ['dobby'] },
+    { id: 14, url: 'harrypotter/14.jpg', keywords: ['harry','men'] },
+    { id: 15, url: 'harrypotter/15.jpg', keywords: ['harry',,'men'] },
+    { id: 16, url: 'harrypotter/16.jpg', keywords: ['harry', 'hermione', 'worried'] },
+    { id: 17, url: 'harrypotter/17.jpg', keywords: ['albus', 'dumbledore','professor','men'] },
+    { id: 18, url: 'harrypotter/18.jpg', keywords: ['sybill', 'trelawney','professor','women'] },
 ];
+
+var gRegularKeywords = [
+    `<span class="small-word word" onclick="onClickWord('trump')" name="trump">trump</span>
+    <span class="big-word word" onclick="onClickWord('funny')" name="funny">Funny</span>
+    <span class="small-word word" onclick="onClickWord('men')" name="men">men</span>
+    <span class="mid-word word" onclick="onClickWord('woman')" name="woman">woman</span>
+    <span class="big-word word" onclick="onClickWord('baby')" name="baby">Baby</span>
+    <span class="small-word word" onclick="onClickWord('puppy')" name="puppy">puppy</span>`
+]
+var gDisneyKeywords= [
+    `<span class="small-word word" onclick="onClickWord('hercules')" name="hercules">hercules</span>
+    <span class="big-word word" onclick="onClickWord('moana')" name="moana">Moana</span>
+    <span class="small-word word" onclick="onClickWord('men')" name="men">men</span>
+    <span class="mid-word word" onclick="onClickWord('woman')" name="woman">woman</span>
+    <span class="big-word word" onclick="onClickWord('frozen')" name="frozen">Frozen</span>
+    <span class="small-word word" onclick="onClickWord('simba')" name="simba">simba</span>`
+]
+
+var gHarryPotterKeywords = [
+    `<span class="small-word word" onclick="onClickWord('hermione')" name="hermione">hermione</span>
+    <span class="big-word word" onclick="onClickWord('funny')" name="funny">Harry</span>
+    <span class="small-word word" onclick="onClickWord('men')" name="men">men</span>
+    <span class="mid-word word" onclick="onClickWord('woman')" name="woman">woman</span>
+    <span class="big-word word" onclick="onClickWord('professor')" name="professor">Professor</span>
+    <span class="small-word word" onclick="onClickWord('ron')" name="ron">ron</span>`
+]
