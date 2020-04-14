@@ -17,19 +17,17 @@
     <header class="main-header flex justify-center">
         <div class="flex container justify-center align-center space-between">
             <div class="logo">memaker
-                <span class="theme disney"></span>
+                <span class="theme-font"></span>
             </div>
             <div class="main-nav flex">
                 <div class="align-center justify-center flex" onclick="onClickGallery()">Gallery</div>
                 <div class="align-center justify-center flex" onclick="onClickMemes()">Memes</div>
                 <div class="align-center justify-center flex">About</div>
                 <div class="align-center justify-center flex theme-dropbtn">
-                    <select name="" onfocus="document.querySelector('.theme-holder').classList.toggle('hidden')"
-                        onchange="onPickTheme(this)" class="dropbtn">
-                        <option class="theme-holder" value="">Theme</option>
-                        <option value="regular">Regular</option>
+                    <select name="" onchange="onPickTheme(this)" class="dropbtn">
+                        <option class="theme-holder" value="regular">Theme</option>
                         <option value="disney">Disney</option>
-                        <option value="harrypotter">HP</option>
+                        <option value="harrypotter">Harry P</option>
                     </select>
                 </div>
             </div>
@@ -56,12 +54,12 @@
                     </input>
                 </div>
                 <div class="words-search flex text-center align-center justify-start">
-                    <span class="small-word" onclick="onClickWord('funny')" name="funny">funny</span>
-                    <span class="big-word" onclick="onClickWord('animal')" name="animal">ANIMAL</span>
-                    <span class="small-word" onclick="onClickWord('men')" name="men">men</span>
-                    <span class="mid-word" onclick="onClickWord('woman')" name="woman">woman</span>
-                    <span class="big-word" onclick="onClickWord('house')" name="house">House</span>
-                    <span class="more-btn" onclick="onClickMore()" class="search-more">more</span>
+                    <span class="small-word word" onclick="onClickWord('funny')" name="funny">funny</span>
+                    <span class="big-word word" onclick="onClickWord('animal')" name="animal">ANIMAL</span>
+                    <span class="small-word word" onclick="onClickWord('men')" name="men">men</span>
+                    <span class="mid-word word" onclick="onClickWord('woman')" name="woman">woman</span>
+                    <span class="big-word word" onclick="onClickWord('house')" name="house">House</span>
+                    <span class="more-btn word" onclick="onClickMore()" class="search-more">more</span>
                 </div>
                 <div class="more-words-container"></div>
             </div>
@@ -80,30 +78,30 @@
                 <input oninput="onAddText()" class="clean-input add-text" type="text" name="Text"
                     placeholder="Enter Your Text">
                 <div class="space-children flex">
-                    <button onclick="onMoveLine('up')">
+                    <button class="edit-btn" onclick="onMoveLine('up')">
                         <i class="fa fa-arrow-up move-line"></i>
                     </button>
-                    <button onclick="onMoveLine('down')">
+                    <button class="edit-btn" onclick="onMoveLine('down')">
                         <i class="fa fa-arrow-down move-line"></i>
                     </button>
-                    <button onclick="onAddText()">
+                    <button class="edit-btn" onclick="onAddText()">
                         <i class="fa fa-plus"></i>
                     </button>
-                    <button onclick="onDeleteText()">
+                    <button class="edit-btn" onclick="onDeleteText()">
                         <i class="fa fa-trash"></i>
                     </button>
 
                 </div>
                 <div class="space-children flex">
-                    <button onclick="onPickChange(this)" name="fontSize" value="bigger">A+</button>
-                    <button onclick="onPickChange(this)" name="fontSize" value="smaller">A-</button>
-                    <button onclick="onPickChange(this)" name="align" value="right">
+                    <button class="edit-btn" onclick="onPickChange(this)" name="fontSize" value="bigger">A+</button>
+                    <button class="edit-btn" onclick="onPickChange(this)" name="fontSize" value="smaller">A-</button>
+                    <button class="edit-btn" onclick="onPickChange(this)" name="align" value="right">
                         <i class="fa fa-align-left"></i>
                     </button>
-                    <button onclick="onPickChange(this)" name="align" value="center">
+                    <button class="edit-btn" onclick="onPickChange(this)" name="align" value="center">
                         <i class="fa fa-align-center"></i>
                     </button>
-                    <button onclick="onPickChange(this)" name="align" value="left">
+                    <button class="edit-btn" onclick="onPickChange(this)" name="align" value="left">
                         <i class="fa fa-align-right"></i>
                     </button>
                 </div>
@@ -115,11 +113,11 @@
                             <option value="cursive">cursive</option>
                         </select>
                     </div>
-                    <div class="colorButton">
+                    <div class="colorButton edit-btn">
                         <span class="color-icon stroke">A</span>
                         <input oninput="onPickChange(this)" name="strokeColor" type="color">
                     </div>
-                    <div class="colorButton">
+                    <div class="colorButton edit-btn">
                         <i class="color-icon fa fa-paint-brush"></i>
                         <input oninput="onPickChange(this)" name="fontColor" type="color">
                     </div>
@@ -131,12 +129,13 @@
                     <img onclick="onPickSticker('5')" src="./stickers/4.png" alt="sticker">
                     <img onclick="onPickSticker('6')" src="./stickers/5.png" alt="sticker">
                 </div>
-                <div class="export-buttons flex space-children">
-                    <button onclick="onSave()">Save</button>
-                    <button><a class="clean-a" href="#" onclick="onDownload(this)" download="">Download</a></button>
+                <div class="export-buttons flex space-children ">
+                    <button class="edit-btn" onclick="onSave()">Save</button>
+                    <button class="edit-btn"><a class="clean-a" href="#" onclick="onDownload(this)"
+                            download="">Download</a></button>
                     <form action="" method="POST" enctype="multipart/form-data" onsubmit="onShare(this, event)">
                         <input name="img" id="imgData" type="hidden" />
-                        <button class="btn" type="submit">Share</button>
+                        <button class="btn edit-btn" type="submit">Share</button>
                     </form>
                 </div>
             </div>
@@ -154,10 +153,10 @@
         <small>all rights reserved 2020</small>
     </footer>
     <script src="js/meme-service.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/meme-controller.js"></script>
     <script src="js/storage-service.js"></script>
     <script src="js/upload-service.js"></script>
+    <script src="js/theme-service.js"></script>
+    <script src="js/meme-controller.js"></script>
 </body>
 
 </html>

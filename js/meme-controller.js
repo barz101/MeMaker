@@ -4,12 +4,11 @@ function onInit() {
     var canvas = document.getElementById('myCanvas');
     var ctx = canvas.getContext('2d');
     setCanvas(canvas, ctx);
-    setThemeImgs();
+    var theme = getCurrTheme();
+    var imgs = getThemeimgs(theme)
+    setGImgs(imgs)
     renderImgs();
-    // window.addEventListener('resize', () => { 
-    //     gCanvas.width = window.innerWidth
-    //     gCanvas.height = window.innerHeight
-    // })
+    // setInitTheme('regular');
 }
 
 
@@ -86,11 +85,48 @@ function onPickSticker(stickerId) {
 }
 
 function onPickTheme(ev) {
+    document.querySelector('.theme-holder').innerText = 'Normal'
     var theme = ev.value
+    var currTheme = getCurrTheme();
     setNewTheme(theme);
     setThemeImgs();
     renderImgs();
+    console.log(theme);
+    // var searchWords = getThemeSearchWords();
+    var Themesdata = getThemeData()
+    if (theme === 'disney') document.querySelector('.theme-font').innerText = 'Disney'
+    if (theme === 'harrypotter') document.querySelector('.theme-font').innerText = 'Harry Potter'
+    if (theme === 'regular') document.querySelector('.theme-font').innerText = ''
+    renderTheme(theme, currTheme, Themesdata);
+    // renderSearchWords(searchWords);
 }
+
+function renderTheme(newTheme, currTheme, Themesdata) {
+    Themesdata.forEach(element => {
+        var newClass = `${newTheme}-${element.class}`
+        var currElement = element.element
+        addClass(currElement, newClass)
+    })
+    Themesdata.forEach(element => {
+        var newClass = `${currTheme}-${element.class}`
+        var currElement = element.element
+        removeClass(currElement, newClass)
+    })
+}
+function addClass(element, newClass) {
+    console.log(element, newClass);
+    document.querySelectorAll(`${element}`).forEach(element => {
+        element.classList.add(`${newClass}`);
+
+    });
+}
+function removeClass(element, newClass) {
+    console.log(element, newClass);
+    document.querySelectorAll(`${element}`).forEach(element => {
+        element.classList.remove(`${newClass}`);
+    });
+}
+
 
 function onSave() {
     // bring saved meme from storage
@@ -185,6 +221,15 @@ function renderSelectedImgs(imgs) {
     var strHTMLs = imgs.map(getImgHTML);
     var elImgContainer = document.querySelector('.image-container');
     elImgContainer.innerHTML = strHTMLs.join('');
+}
+function renderSearchWords(searchWords) {
+    var elContainer = document.querySelector('.words-search');
+    elContainer.innerHTML = `<span class="small-word" onclick="onClickWord('funny')" name="funny">funny</span>
+   <span class="big-word" onclick="onClickWord('animal')" name="animal">ANIMAL</span>
+   <span class="small-word" onclick="onClickWord('men')" name="men">men</span>
+   <span class="mid-word" onclick="onClickWord('woman')" name="woman">woman</span>
+   <span class="big-word" onclick="onClickWord('house')" name="house">House</span>
+   <span class="more-btn" onclick="onClickMore()" class="search-more">more</span>`
 }
 
 function renderMeme() {

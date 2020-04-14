@@ -13,6 +13,15 @@
     src: url("../fonts/Garatlo/GaratloDemo-ALLxg.ttf");
 }
 
+@font-face {
+    font-family: Walter;
+    src: url("../fonts/Walter/Walter-zrol.ttf");
+}
+@font-face {
+    font-family: Harrypotter;
+    src: url("../fonts/Harrypotter/HarryP-MVZ6w.ttf")
+}
+
 body {
     margin: 0;
     font-family: Montserrat;
@@ -45,6 +54,8 @@ body {
     visibility: visible;
     opacity: 1;
 }
+
+/* Header */
 
 .main-header {
     color: white;
@@ -82,7 +93,7 @@ body {
 }
 
 .theme-dropbtn select {
-    background-color: transparent;
+    background-color: rgb(19, 172, 152);
     font-family: Montserrat;
     color: white;
     cursor: pointer;
@@ -104,6 +115,7 @@ body {
     background-color: rgb(19, 172, 152);
     outline: none;
 }
+
 
 /* image-gallery */
 
@@ -147,7 +159,6 @@ body {
     margin-left: 5px;
     font-size: 1.5rem;
     margin-top: 10px;
-    /* cursor: pointer; */
 }
 
 .image-search .browse {
@@ -210,10 +221,12 @@ body {
     padding: 30px 0px;
     height: 85vh;
 }
+
 .canvas-container {
     width: 650px;
     height: 650px;
 }
+
 canvas {
     cursor: pointer;
 }
@@ -223,16 +236,19 @@ canvas {
     height: 650px;
     box-shadow: inset -2px -1px 10px 1px rgb(225, 228, 228);
     outline: 0.2px solid rgba(233, 232, 232, 0.267);
-    background-color: rgb(245, 255, 255);
+    background-color: rgb(250, 255, 255);
 }
 
-
 .edit-container .add-text {
-    box-shadow: inset -1px -1px 2px 1px rgb(190, 223, 223);
+    box-shadow: inset -1px -1px 2px 1px rgb(211, 219, 219);
     border-radius: 15px;
     width: 260px;
     padding: 15px;
-    background-color: rgba(223, 248, 245, 0.47);
+    transition: all 0.2s ease-in-out;
+}
+
+.add-text:focus {
+    background-color: rgb(181, 243, 235);
 }
 
 .edit-container button {
@@ -247,7 +263,6 @@ canvas {
     border-radius: 12px;
     font-weight: 700;
     transition: all 0.2s ease;
-    /* transform: translateX(0); */
 }
 
 .edit-container button:hover {
@@ -321,7 +336,7 @@ canvas {
 .colorButton span {
     font-size: 2.2rem !important;
     -webkit-text-stroke: 1px white;
-    color: rgb(19, 172, 152);
+    color: transparent;
 }
 
 input[type="color"] {
@@ -356,7 +371,7 @@ input[type="color"]::-webkit-color-swatch {
 .edit-container .stickers {
     width: 300px;
     height: 70px;
-    border: 1px solid rgba(136, 192, 184, 0.47);
+    border: 1px solid rgba(200, 207, 206, 0.47);
     border-radius: 12px;
     background-color: rgba(181, 243, 235, 0.47);
 }
@@ -414,9 +429,7 @@ footer small {
         right: 0;
         display: none;
         flex-direction: column;
-        /* height: 100vh; */
         background-color: rgb(19, 172, 152);
-        /* box-shadow: inset 0px 6px 0px 0px #f57904; */
         min-width: 180px;
         transform: translateX(100%);
         transition: transform .6s;
@@ -457,7 +470,6 @@ footer small {
         margin: 0
     }
     .image-container {
-        /* height: 40vh; */
         display: flex;
         justify-content: space-between;
     }
@@ -498,7 +510,9 @@ footer small {
     .big-word {
         display: none;
     }
+
     /* image editer */
+
     .image-editor {
         background-color: #f3eded;
         padding: 8px 0px;
@@ -557,4 +571,97 @@ footer small {
     /* .edit-container .export-buttons button {
         font-size: 1rem;
     } */
+}
+
+
+/* theme settings */
+
+.disney-background {
+    background-image: url("../img/background2.png") !important;
+    box-shadow: inset 0 -6px 0 rgb(29, 73, 168) !important;
+}
+
+.disney-maincolor {
+    background-color: rgb(20, 69, 172) !important;
+    border-color: rgb(15, 55, 141) !important;
+}
+.disney-maincolor:hover {
+    opacity: 0.85;
+}
+
+.disney-secondrycolor:hover {
+    color: rgb(165, 187, 233) !important;
+}
+.disney-secondrycolor:focus {
+    background-color: rgb(165, 187, 233) !important;
+}
+.disney-thirdcolor {
+    background-color: rgb(196, 213, 250) !important;
+}
+.disney-dropdown {
+    background-color: rgb(20, 69, 172) !important;
+    color: white !important;
+}
+.disney-dropdown:hover {
+    background-color: rgb(20, 69, 172) !important;
+    color: white !important;
+}
+.disney-dropdown:focus {
+    background-color: rgb(20, 69, 172) !important;
+    color: white !important;
+}
+.disney-dropdown:active {
+    background-color: rgb(20, 69, 172) !important;
+    color: white !important;
+}
+.disney-logo {
+    font-family: Walter;
+    font-size: 1.3rem;
+    margin-left: 20px;
+    box-shadow: inset 0 -2px 0 rgb(255, 255, 255);
+}
+
+.harrypotter-background {
+    background-image: url("../img/background3.jpg") !important;
+    box-shadow: inset 0 -6px 0 rgb(6, 22, 56) !important;
+}
+
+.harrypotter-maincolor {
+    background-color: rgb(9, 29, 75)!important;
+    border-color: rgb(2, 12, 32)!important;
+}
+.harrypotter-maincolor:hover {
+    opacity: 0.85;
+}
+
+.harrypotter-secondrycolor:hover {
+    color: rgb(140, 159, 194) !important;
+}
+.harrypotter-secondrycolor:focus {
+    background-color: rgb(198, 203, 211) !important;
+}
+.harrypotter-thirdcolor {
+    background-color: rgb(207, 210, 214) !important;
+}
+.harrypotter-dropdown {
+    background-color: rgb(10, 36, 92)!important;
+    color: white !important;
+}
+.harrypotter-dropdown:hover {
+    background-color: rgb(22, 50, 110)!important;
+    color: white !important;
+}
+.harrypotter-dropdown:focus {
+    background-color: rgb(10, 36, 92)!important;
+    color: white !important;
+}
+.harrypotter-dropdown:active {
+    background-color: rgb(10, 36, 92)!important;
+    color: white !important;
+}
+.harrypotter-logo {
+    font-family: Harrypotter;
+    font-size: 2.2rem;
+    margin-left: 20px;
+    box-shadow: inset 0 -2px 0 rgb(255, 255, 255);
 }
